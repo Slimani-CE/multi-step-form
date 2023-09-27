@@ -1,0 +1,540 @@
+/* ----------- FONTS BLOCK (START) ----------- */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(assets/fonts/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Ubuntu-Medium';
+    src: url(assets/fonts/Ubuntu-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Ubuntu-Bold';
+    src: url(assets/fonts/Ubuntu-Bold.ttf);
+}
+/* ----------- FONTS BLOCK (END) ----------- */
+
+
+/* ----------- GENERAL CSS (START) ----------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu';
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EFF5FF;
+}
+
+.hidden {
+    display: none !important;
+}
+/* ----------- GENERAL CSS (END) ----------- */
+
+
+/* ----------- FORM CONTAINER CSS (START) ----------- */
+.container {
+    width: 940px;
+    height: 600px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 16px;
+    display: flex;
+}
+/* ----------- FORM CONTAINER CSS (END) ----------- */
+
+
+/* ----------- STEPS CONTAINER CSS (START) ----------- */
+.container .steps-container {
+    width: 275px;
+    height: 100%;
+    border-radius: 10px;
+    padding: 40px;
+    background-image: url(assets/images/bg-sidebar-desktop.svg);
+}
+
+.container .steps-container .steps {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+
+.container .steps-container .steps .step {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.container .steps-container .steps .step .step-index {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    color: white;
+    border: 2px solid white;
+    font-size: 14px;
+    font-family: 'Ubuntu-Bold';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .steps-container .steps .step.checked .step-index {
+    background-color: #BEE2FD;
+    color: #022959;
+    border: none;
+}
+
+.container .steps-container .steps .step .step-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 4px;
+}
+
+.container .steps-container .steps .step .step-details span {
+    font-size: 12px;
+    font-weight: 'Ubuntu';
+    color: #ABBCFF;
+    text-transform: uppercase;
+}
+
+.container .steps-container .steps .step .step-details h2.step-title {
+    font-size: 14px;
+    font-family: 'Ubuntu-Bold';
+    letter-spacing: 1px;
+    color: white;
+    text-transform: uppercase;
+}
+/* ----------- STEPS CONTAINER CSS (END) ----------- */
+
+
+/* ----------- FORMS CONTAINER CSS (START) ----------- */
+.container .forms-container {
+    height: 100%;
+    padding: 40px 84px 16px;
+    flex: 1;
+}
+
+.container .forms-container .form .header .title {
+    font-size: 32px;
+    font-family: 'Ubuntu-Bold';
+    color: #022959;
+}
+
+.container .forms-container .form .header .details {
+    font-size: 16px;
+    line-height: 25px;
+    font-family: 'Ubuntu';
+    color: #9699AA;
+    margin-top: 11px;
+}
+
+.container .forms-container .form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    position: relative;
+}
+
+.container .forms-container .form .footer {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .forms-container .form .footer .next-step-btn {
+    width: 123px;
+    height: 100%;
+    border-radius: 8px;
+    background-color: #022959;
+    color: white;
+    font-family: 'Ubuntu-Medium';
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+.container .forms-container .form .footer .prev-step-btn {
+    width: 123px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #9699AA;
+    font-size: 16px;
+    font-family: 'Ubuntu-Medium';
+    cursor: pointer;
+}
+
+.container .forms-container .form .footer .prev-step-btn:hover {
+    color: #022959;
+}
+/* ----------- FORMS CONTAINER CSS (END) ----------- */
+
+
+/* ----------- PERSONAL INFO FORM CSS (START) ----------- */
+.container .forms-container .form.personal-info-form .inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container {
+    width: 100%;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container label .label {
+    font-size: 14px;
+    font-family: 'Ubuntu';
+    color: #022959;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container label .required {
+    font-size: 14px;
+    font-family: 'Ubuntu-Bold';
+    color: #EE374A;
+    display: none;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #D6D9E6;
+    border-radius: 8px;
+    padding: 20px;
+    color: #022959;
+    font-family: 'Ubuntu-Medium';
+    margin-top: 8px;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container input:focus-visible {
+    border: 1px solid #483EFF ;
+    outline: none;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container input::placeholder {
+    color: #9699AA;
+    font-family: 'Ubuntu-Medium';
+    font-size: 16px;
+} 
+
+/* CSS WHEN INPUT HAS ERROR */
+.container .forms-container .form.personal-info-form .inputs .input-container.error label .required {
+    display: block;
+}
+
+.container .forms-container .form.personal-info-form .inputs .input-container.error input {
+    border: 1px solid #EE374A;
+}
+
+.container .forms-container .form .footer .next-step-btn:hover {
+    background-color: #164A8A;
+}
+
+/* ----------- PERSONAL INFO FORM CSS (END) ----------- */
+
+
+/* ----------- PLAN FORM CSS (START) ----------- */
+.container .forms-container .form.plan-form .plans-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 30px 18px;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card {
+    width: 138px;
+    height: 183px;
+    padding: 16px;
+    border: 1px solid #D6D9E6;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card:hover {
+    border: 1px solid #483EFF;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card.checked {
+    border: 1px solid #483EFF;
+    background-color: #F8F9FF;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card img {
+    width: 40px;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card .details {
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card .details h3 {
+    font-size: 16px;
+    font-family: 'Ubuntu-Medium';
+    color: #022959;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card .details .price {
+    font-size: 14px;
+    font-family: 'Ubuntu';
+    line-height: 20px;
+    color: #9699AA;
+    display: block;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-card .details .offre {
+    font-family: 'Ubuntu';
+    font-size: 12px;
+    color: #022959;
+    display: block;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-period {
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #F8F9FF;
+    grid-column: 1 / 3 span;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 24px;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-period span {
+    font-family: 'Ubuntu-Bold';
+    font-size: 14px;
+    color: #9699AA;
+    transition: all 0.2s ease-in-out;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-period span.checked {
+    color: #022959;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-period .toggle-switch {
+    width: 38px;
+    height: 20px;
+    background-color: #022959;
+    border-radius: 10px;
+    position: relative;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-period .toggle-switch.on::before {
+    transform: translateX(16px);
+}
+
+.container .forms-container .form.plan-form .plans-container .plan-period .toggle-switch::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+/* ----------- PLAN FORM CSS (END) ----------- */
+
+
+/* ----------- ADD-ONS FORM CSS (START) ----------- */
+.container .forms-container .form.add-ons-form .add-ons-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    border: 1px solid #D6D9E6;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on:hover {
+    border: 1px solid #483EFF;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on.checked {
+    border: 1px solid #483EFF;
+    background-color: #F8F9FF;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on.checked .checkbox {
+    background-color: #483EFF;
+    background-image: url(assets/images/icon-checkmark.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on .checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #D6D9E6;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on .details {
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on .details h4.title {
+    font-family: 'Ubuntu-Medium';
+    font-size: 16px;
+    color: #022959;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on .details span {
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    color: #9699AA;
+}
+
+.container .forms-container .form.add-ons-form .add-ons-container .add-on .price {
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    color: #483EFF;
+    position: absolute;
+    right: 25px;
+}
+/* ----------- ADD-ONS FORM CSS (END) ----------- */
+
+
+/* ----------- SUMMARY FORM CSS (START) ----------- */
+.container .forms-container .form.summary-form .summary-container .details {
+    width: 100%;
+    background-color: #F8F9FF;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .header .plan-type .title {
+    font-family: 'Ubuntu-Medium';
+    font-size: 16px;
+    color: #022959;
+    display: block;
+    text-transform: capitalize;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .header .plan-type .change {
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    color: #9699AA;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .header .plan-type .change:hover {
+    color: #483EFF;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .header .price {
+    font-family: 'Ubuntu-Bold';
+    font-size: 16px;
+    color: #022959;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .add-ons {
+    border-top: 1px solid #9699AA;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .add-ons .add-on {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .add-ons .add-on .title {
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    color: #9699AA;
+}
+
+.container .forms-container .form.summary-form .summary-container .details .add-ons .add-on .price {
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    color: #022959;
+}
+
+.container .forms-container .form.summary-form .summary-container .total {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .forms-container .form.summary-form .summary-container .total .title {
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    color: #9699AA;
+}
+
+.container .forms-container .form.summary-form .summary-container .total .price {
+    font-family: 'Ubuntu-Bold';
+    font-size: 20px;
+    color: #483EFF;
+}
+
+.container .forms-container .form.summary-form .footer .next-step-btn {
+    background-color: #483EFF;
+}
+
+.container .forms-container .form.summary-form .footer .next-step-btn:hover {
+    background-color: #928CFF;
+}
+/* ----------- SUMMARY FORM CSS (END) ----------- */

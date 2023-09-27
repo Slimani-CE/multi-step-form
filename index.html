@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Multi-step form</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="steps-container">
+        <ul class="steps">
+
+          <li class="step checked" id="personal-info-step">
+            <span class="step-index">1</span>
+            <div class="step-details">
+              <span>step 1</span>
+              <h2 class="step-title">your info</h2>
+            </div>
+          </li>
+
+          <li class="step" id="plan-step">
+            <span class="step-index">2</span>
+            <div class="step-details">
+              <span>step 2</span>
+              <h2 class="step-title">select plan</h2>
+            </div>
+          </li>
+
+          <li class="step" id="add-ons-step">
+            <span class="step-index">3</span>
+            <div class="step-details">
+              <span>step 3</span>
+              <h2 class="step-title">add-ons</h2>
+            </div>
+          </li>
+
+          <li class="step" id="summary-step">
+            <span class="step-index">4</span>
+            <div class="step-details">
+              <span>step 4</span>
+              <h2 class="step-title">summary</h2>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="forms-container">
+
+        <div class="form personal-info-form" id="personal-info-form">
+          <div class="header">
+            <h1 class="title">Personal info</h1>
+            <span class="details">Please provide your name, email address, and
+              phone number.</span>
+          </div>
+
+          <div class="inputs">
+
+            <div class="input-container">
+              <label for="name"><span class="label">Name</span><span
+                  class="required">This field is required</span></label>
+              <input type="text" placeholder="e.g. Stephen King" name="name"
+                id="name">
+            </div>
+
+            <div class="input-container">
+              <label for="email"><span class="label">Email Address</span><span
+                  class="required">This field is required</span></label>
+              <input type="text" placeholder="e.g. stephenking@lorem.com"
+                name="email" id="email">
+            </div>
+
+            <div class="input-container">
+              <label for="phone"><span class="label">Phone Number</span><span
+                  class="required">This field is required</span></label>
+              <input type="text" placeholder="e.g. +1 234 567 890" name="phone"
+                id="phone">
+            </div>
+
+          </div>
+
+          <div class="footer">
+            <button class="next-step-btn" onclick="checkPersonalInfo()">Next
+              Step</button>
+          </div>
+
+        </div>
+
+        <div class="form hidden plan-form" id="plan-form">
+
+          <div class="header">
+            <h1 class="title">Select your plan</h1>
+            <span class="details">You have the option of monthly or yearly
+              billing.</span>
+          </div>
+
+          <div class="plans-container">
+
+            <div class="plan-card checked" onclick="checkPlan(this)"
+              data-plan-type="arcade">
+              <img src="assets/images/icon-arcade.svg" alt="icon-arcade">
+              <div class="details">
+                <h3 class="title">Arcade</h3>
+                <span class="price" id="arcade-plan-price">-</span>
+                <span class="offre" id="arcade-plan-offre">-</span>
+              </div>
+            </div>
+
+            <div class="plan-card" onclick="checkPlan(this)"
+              data-plan-type="advanced">
+              <img src="assets/images/icon-advanced.svg" alt="icon-advanced">
+              <div class="details">
+                <h3 class="title">Advanced</h3>
+                <span class="price" id="advanced-plan-price">-</span>
+                <span class="offre" id="advanced-plan-offre">-</span>
+              </div>
+            </div>
+
+            <div class="plan-card" onclick="checkPlan(this)"
+              data-plan-type="pro">
+              <img src="assets/images/icon-pro.svg" alt="icon-pro">
+              <div class="details">
+                <h3 class="title">Pro</h3>
+                <span class="price" id="pro-plan-price">-</span>
+                <span class="offre" id="pro-plan-offre">-</span>
+              </div>
+            </div>
+
+            <div class="plan-period">
+              <span class="monthly checked">Monthly</span>
+              <div class="toggle-switch" id="plan-type"
+                onclick="togglePlanPeriod(this)"
+                data-default="monthly"></div>
+              <span class="yearly">Yearly</span>
+            </div>
+
+          </div>
+
+          <div class="footer">
+            <button class="prev-step-btn"
+              onclick="showForm('personal-info-form')">Go Back</button>
+            <button class="next-step-btn" onclick="showForm('add-ons-form')">Next
+              Step</button>
+          </div>
+
+        </div>
+
+        <div class="form hidden add-ons-form" id="add-ons-form">
+
+          <div class="header">
+            <h1 class="title">Pick add-ons</h1>
+            <span class="details">Add-ons help enhance your gaming experience.</span>
+          </div>
+
+          <div class="add-ons-container">
+
+            <div class="add-on" onclick="checkAddOn(this)"
+              data-add-on="onlineService">
+              <div class="checkbox"></div>
+              <div class="details">
+                <h4 class="title">Online service</h4>
+                <span>Access to multiplayer games</span>
+              </div>
+              <span class="price" id="online-service">-</span>
+            </div>
+
+            <div class="add-on" onclick="checkAddOn(this)"
+              data-add-on="largerStorage">
+              <div class="checkbox"></div>
+              <div class="details">
+                <h4 class="title">Larger storage</h4>
+                <span>Extra 1TB of cloud save</span>
+              </div>
+              <span class="price" id="larger-storage">-</span>
+            </div>
+
+            <div class="add-on" onclick="checkAddOn(this)"
+              data-add-on="customizableProfile">
+              <div class="checkbox"></div>
+              <div class="details">
+                <h4 class="title">Customizable profile</h4>
+                <span>Custom theme on your profile</span>
+              </div>
+              <span class="price" id="custom-profile">-</span>
+            </div>
+
+          </div>
+
+          <div class="footer">
+            <button class="prev-step-btn" onclick="showForm('plan-form')">Go
+              Back</button>
+            <button class="next-step-btn" onclick="collectUserData()">Next
+              Step</button>
+          </div>
+
+        </div>
+
+        <div class="form hidden summary-form" id="summary-form">
+
+          <div class="header">
+            <h1 class="title">Finishing up</h1>
+            <span class="details">Double-check everything looks OK before
+              confirming.</span>
+          </div>
+
+          <div class="summary-container">
+            <div class="details">
+              <div class="header">
+                <div class="plan-type">
+                  <span class="title" id="summary-plan-title">Arcade (Monthly)</span>
+                  <span class="change" onclick="showForm('plan-form')">Change</span>
+                </div>
+                <span class="price" id="summary-plan-price">-</span>
+              </div>
+              <div class="add-ons">
+                <div class="add-on">
+                  <span class="title">Online service</span>
+                  <span class="price">+$1/mo</span>
+                </div>
+                <div class="add-on">
+                  <span class="title">Larger storage</span>
+                  <span class="price">+$2/mo</span>
+                </div>
+              </div>
+            </div>
+            <div class="total">
+              <span class="title" id="summary-plan-total-title">Total(per month)</span>
+              <span class="price" id="summary-plan-total-price">+$12/mo</span>
+            </div>
+          </div>
+
+          <div class="footer">
+            <button class="prev-step-btn" onclick="showForm('add-ons-form')">Go
+              Back</button>
+            <button class="next-step-btn" onclick="showForm('summary-form')">Confirm</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Sidebar start -->
+
+    <!-- Step 1
+  Your info
+
+  Step 2
+  Select plan
+
+  Step 3
+  Add-ons
+
+  Step 4
+  Summary -->
+    <!-- Sidebar end -->
+
+    <!-- Step 1 start -->
+    <!-- 
+  Personal info
+  Please provide your name, email address, and phone number.
+
+  Name
+  e.g. Stephen King
+
+  Email Address
+  e.g. stephenking@lorem.com
+
+  Phone Number
+  e.g. +1 234 567 890
+
+  Next Step -->
+    <!-- Step 1 end -->
+
+    <!-- Step 2 start -->
+
+    <!-- Select your plan
+  You have the option of monthly or yearly billing.
+
+  Arcade
+  $9/mo
+
+  Advanced
+  $12/mo
+
+  Pro
+  $15/mo
+
+  Monthly
+  Yearly
+
+  Go Back
+  Next Step -->
+    <!-- Step 2 end -->
+
+    <!-- Step 3 start -->
+    <!-- 
+  Pick add-ons
+  Add-ons help enhance your gaming experience.
+
+  Online service
+  Access to multiplayer games
+  +$1/mo
+
+  Larger storage
+  Extra 1TB of cloud save
+  +$2/mo
+
+  Customizable Profile
+  Custom theme on your profile
+  +$2/mo
+
+  Go Back
+  Next Step -->
+    <!-- Step 3 end -->
+
+    <!-- Step 4 start -->
+    <!-- 
+  Finishing up
+  Double-check everything looks OK before confirming. -->
+    <!-- Dynamically add subscription and add-on selections here -->
+    <!-- 
+  Total (per month/year)
+
+  Go Back
+  Confirm -->
+
+    <!-- Step 4 end -->
+
+    <!-- Step 5 start -->
+
+    <!-- Thank you!
+
+  Thanks for confirming your subscription! We hope you have fun 
+  using our platform. If you ever need support, please feel free 
+  to email us at support@loremgaming.com. -->
+    <!-- Step 5 end -->
+    <script src="script.js"></script>
+  </body>
+</html>
